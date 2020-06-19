@@ -1,0 +1,48 @@
+﻿@model IEnumerable<PhotoUpload.Models.Images>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image_Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @if (item.image != null)
+                {
+                    var base64 = Convert.ToBase64String(item.image);
+                    var ImgSource = string.Format("data:image/gif;base64,{0}", base64);
+                    <img src="@ImgSource" />
+
+                }
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Image_Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Image_Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Image_Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Image_Id })
+            </td>
+        </tr>
+    }
+
+
+</table>

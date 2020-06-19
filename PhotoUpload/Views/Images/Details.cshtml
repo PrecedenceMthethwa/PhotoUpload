@@ -1,0 +1,34 @@
+﻿@model PhotoUpload.Models.Images
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Images</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Image_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
